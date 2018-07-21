@@ -1,27 +1,42 @@
 function love.load()
+    rects = {}
+end
+
+function createRectangle()
     rect = {}
     rect.x = 100
     rect.y = 100
     rect.width = 200
     rect.hight = 150
     rect.step = 50
+
+    table.insert(rects, rect)
 end
 
 function love.update(dt)
-
-    step = rect.step * dt
-
     if love.keyboard.isDown("right") then
-        rect.x = rect.x + step
+        for i, rect in ipairs(rects) do
+            rect.x = rect.x + (rect.step * dt)
+        end
     elseif love.keyboard.isDown("left") then
-        rect.x = rect.x - step
+        for i, rect in ipairs(rects) do
+            rect.x = rect.x - (rect.step * dt)
+        end
     elseif love.keyboard.isDown("up") then
-        rect.y = rect.y - step
+        for i, rect in ipairs(rects) do
+            rect.y = rect.y - (rect.step * dt)
+        end
     elseif love.keyboard.isDown("down") then
-        rect.y = rect.y + step
+        for i, rect in ipairs(rects) do
+            rect.y = rect.y + (rect.step * dt)
+        end
+    elseif love.keyboard.isDown("space") then
+        createRectangle()
     end
 end
 
 function love.draw()
-    love.graphics.rectangle("line", rect.x, rect.y, rect.width, rect.hight)
+    for i, rect in ipairs(rects) do
+        love.graphics.rectangle("line", rect.x, rect.y, rect.width, rect.hight)
+    end
 end
