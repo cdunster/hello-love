@@ -1,21 +1,12 @@
+require("shape-drawer")
+
 function love.load()
     rects = {}
 end
 
-function createRectangle()
-    rect = {}
-    rect.x = 100
-    rect.y = 100
-    rect.width = 200
-    rect.hight = 150
-    rect.step = 50
-
-    table.insert(rects, rect)
-end
-
 function love.keypressed(key)
     if "space" == key then
-        createRectangle()
+        table.insert( rects, createRectangle())
     end
 end
 
