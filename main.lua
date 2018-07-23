@@ -13,6 +13,12 @@ function createRectangle()
     table.insert(rects, rect)
 end
 
+function love.keypressed(key)
+    if "space" == key then
+        createRectangle()
+    end
+end
+
 function love.update(dt)
     if love.keyboard.isDown("right") then
         for i, rect in ipairs(rects) do
@@ -30,8 +36,6 @@ function love.update(dt)
         for i, rect in ipairs(rects) do
             rect.y = rect.y + (rect.step * dt)
         end
-    elseif love.keyboard.isDown("space") then
-        createRectangle()
     end
 end
 
