@@ -25,7 +25,10 @@ function love.update(dt)
     tick.update(dt)
 
     if drawCircle then
-        circle = Circle(200, 100, 50)
+        local x = math.random(0, 500)
+        local y = math.random(0, 500)
+        local radius = math.random(50, 200)
+        circle = Circle(x, y, radius)
         drawCircle = false
     end
 
@@ -36,7 +39,7 @@ function love.update(dt)
 end
 
 function love.draw()
-    love.graphics.draw(sheepSprite, 100, 100)
+    love.graphics.draw(sheepSprite, 0, 500)
 
     for i, shape in ipairs(shapes) do
         local mode
