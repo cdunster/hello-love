@@ -7,6 +7,6 @@ function Circle:new(x, y, radius)
     self.radius = radius
 end
 
-function Circle:draw()
-    love.graphics.circle("line", self.x, self.y, self.radius)
+function Circle:draw(mode)
+    love.graphics.circle(mode, self.x, self.y, self.radius)
 end
