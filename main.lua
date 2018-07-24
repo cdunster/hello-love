@@ -9,6 +9,8 @@ function love.load()
 
     shapes = {}
 
+    sheepSprite = love.graphics.newImage("resources/sheep.png")
+
     drawRectangle = false
     tick.delay(function() drawRectangle = true end, 2)
 end
@@ -34,6 +36,8 @@ function love.update(dt)
 end
 
 function love.draw()
+    love.graphics.draw(sheepSprite, 100, 100)
+    
     for i, shape in ipairs(shapes) do
         shape:draw()
     end
