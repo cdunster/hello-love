@@ -15,3 +15,10 @@ function Player:update(dt)
 
     Player.super.update(self, dt)
 end
+
+function Player:keypressed(key)
+    if "space" == key then
+        local bullet_x = self.x + (self.width/2)
+        table.insert(listOfBullets, Bullet(bullet_x, self.y, 700, "resources/bullet.png"))
+    end
+end
