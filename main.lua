@@ -1,7 +1,11 @@
 require("shape-drawer")
 
 function love.load()
+    tick = require("tick")
     rects = {}
+
+    drawRectangle = false
+    tick.delay(function() drawRectangle = true end, 2)
 end
 
 function love.keypressed(key)
@@ -11,6 +15,13 @@ function love.keypressed(key)
 end
 
 function love.update(dt)
+    tick.update(dt)
+
+    if drawRectangle then
+        table.insert( rects, createRectangle())
+        drawRectangle = false
+    end
+
     if love.keyboard.isDown("right") then
         for i, rect in ipairs(rects) do
             rect.x = rect.x + (rect.step * dt)
