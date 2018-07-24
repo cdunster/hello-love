@@ -21,31 +21,18 @@ function love.update(dt)
     tick.update(dt)
 
     if drawRectangle then
-        table.insert( shapes, Shape())
+        table.insert(shapes, Shape())
         drawRectangle = false
     end
 
-    if love.keyboard.isDown("right") then
-        for i, rect in ipairs(shapes) do
-            rect.x = rect.x + (rect.step * dt)
-        end
-    elseif love.keyboard.isDown("left") then
-        for i, rect in ipairs(shapes) do
-            rect.x = rect.x - (rect.step * dt)
-        end
-    elseif love.keyboard.isDown("up") then
-        for i, rect in ipairs(shapes) do
-            rect.y = rect.y - (rect.step * dt)
-        end
-    elseif love.keyboard.isDown("down") then
-        for i, rect in ipairs(shapes) do
-            rect.y = rect.y + (rect.step * dt)
-        end
+    for i, shape in ipairs(shapes) do
+        shape:update(dt)
     end
+    
 end
 
 function love.draw()
-    for i, rect in ipairs(shapes) do
-        love.graphics.rectangle("line", rect.x, rect.y, rect.width, rect.hight)
+    for i, shape in ipairs(shapes) do
+        shape:draw()
     end
 end
