@@ -4,6 +4,7 @@ function love.load()
     tick = require("tick")
     Object = require("classic")
     require("shape")
+    require("rectangle")
 
     shapes = {}
 
@@ -13,7 +14,7 @@ end
 
 function love.keypressed(key)
     if "space" == key then
-        table.insert( shapes, Shape())
+        table.insert(shapes, Rectangle(100, 100, 150, 50))
     end
 end
 
@@ -21,7 +22,7 @@ function love.update(dt)
     tick.update(dt)
 
     if drawRectangle then
-        table.insert(shapes, Shape())
+        table.insert(shapes, Rectangle(200, 100, 150, 50))
         drawRectangle = false
     end
 
