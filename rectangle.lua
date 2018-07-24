@@ -1,4 +1,4 @@
---! file: The rectangle class.
+--! file: The class for drawing a rectangle on the screen.
 
 Rectangle = Shape:extend()
 

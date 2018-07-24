@@ -5,6 +5,7 @@ function love.load()
     Object = require("classic")
     require("shape")
     require("rectangle")
+    require("circle")
 
     shapes = {}
 
@@ -22,7 +23,7 @@ function love.update(dt)
     tick.update(dt)
 
     if drawRectangle then
-        table.insert(shapes, Rectangle(200, 100, 150, 50))
+        table.insert(shapes, Circle(200, 100, 50))
         drawRectangle = false
     end
 
