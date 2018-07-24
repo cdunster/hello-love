@@ -7,6 +7,17 @@ function Character:new(x, y, speed, imageDir)
     self.y = y
     self.speed = speed
     self.sprite = love.graphics.newImage(imageDir)
+    self.width = self.sprite:getWidth()
+end
+
+function Character:update(dt)
+    local window_width = love.graphics.getWidth()
+
+    if 0 > self.x then
+        self.x = 0
+    elseif window_width < (self.x + self.width) then
+        self.x = window_width - self.width
+    end
 end
 
 function Character:draw()
