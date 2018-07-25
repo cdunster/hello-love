@@ -18,6 +18,11 @@ function love.update(dt)
 
     for i, bullet in ipairs(listOfBullets) do
         bullet:update(dt)
+        bullet:checkCollision(enemy)
+
+        if bullet.dead then
+            table.remove(listOfBullets,i)
+        end
     end
 end
 
