@@ -8,6 +8,7 @@ function Character:new(x, y, speed, imageDir)
     self.speed = speed
     self.sprite = love.graphics.newImage(imageDir)
     self.width = self.sprite:getWidth()
+    self.height = self.sprite:getHeight()
 end
 
 function Character:update(dt)
