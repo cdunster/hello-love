@@ -9,6 +9,10 @@ end
 
 function Bullet:update(dt)
     self.y = self.y - (self.speed * dt)
+
+    if 0 > self.y then
+        love.load() -- Restart the game.
+    end
 end
 
 function Bullet:checkCollision(obj)
