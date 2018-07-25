@@ -8,7 +8,7 @@ function love.load()
     require("bullet")
 
     player = Player(350, 500, 500, "resources/panda.png")
-    enemy = Enemy(0, 20, 500, "resources/snake.png")
+    enemy = Enemy(0, 20, 200, "resources/snake.png")
     listOfBullets = {}
 end
 
