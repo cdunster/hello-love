@@ -34,5 +34,6 @@ function Bullet:checkCollision(obj)
 
         --Increase enemy speed
         obj.speed = obj.speed + 50
+        score = score + 50
     end
 end

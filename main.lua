@@ -7,6 +7,9 @@ function love.load()
     require("enemy")
     require("bullet")
 
+    love.graphics.setNewFont(20)
+
+    score = 0
     player = Player(350, 500, 500, "resources/panda.png")
     enemy = Enemy(0, 20, 200, "resources/snake.png")
     listOfBullets = {}
@@ -33,6 +36,8 @@ function love.draw()
     for i, bullet in ipairs(listOfBullets) do
         bullet:draw()
     end
+
+    love.graphics.print("Score: " .. score, 20, 20)
 end
 
 function love.keypressed(key)
