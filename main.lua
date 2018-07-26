@@ -1,12 +1,12 @@
 --! file: The entry point of the game.
 
-function love.load()
-    Object = require("classic")
-    require("character")
-    require("player")
-    require("enemy")
-    require("bullet")
+Object = require("classic")
+require("character")
+require("player")
+require("enemy")
+require("bullet")
 
+function love.load()
     love.graphics.setNewFont(20)
     gameOver = false
 
