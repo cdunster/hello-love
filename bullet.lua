@@ -11,7 +11,7 @@ function Bullet:update(dt)
     self.y = self.y - (self.speed * dt)
 
     if 0 > self.y then
-        love.load() -- Restart the game.
+        gameOver = true
     end
 end
 
